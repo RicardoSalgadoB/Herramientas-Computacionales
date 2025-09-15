@@ -70,8 +70,16 @@ def rectangle(start, end):
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    """Se creara el triangulo utilizando de base la longitud entre el primer y segundo click."""
+    side = end.x - start.x
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for _ in range(3):
+        forward(side)
+        left(120)
+    end_fill()
 
 
 def tap(x, y):
