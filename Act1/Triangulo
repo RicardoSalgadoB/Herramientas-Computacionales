@@ -1,0 +1,11 @@
+def triangle(start, end):
+    """Se creara el triangulo utilizando de base la longitud entre el primer y segundo click."""
+    side = end.x - start.x
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for _ in range(3):
+        forward(side)
+        left(120)
+    end_fill()
