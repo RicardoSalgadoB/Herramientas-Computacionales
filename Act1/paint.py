@@ -8,6 +8,7 @@ Exercises
 4. Complete triangle.
 5. Add width parameter.
 """
+from math import sqrt
 
 from turtle import *
 
@@ -38,7 +39,16 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(180):
+        forward(max((end.x - start.x), (end.y - start.y))/57)
+        left(2)
+
+    end_fill()
 
 
 def rectangle(start, end):
