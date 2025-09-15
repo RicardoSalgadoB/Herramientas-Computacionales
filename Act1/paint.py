@@ -38,15 +38,27 @@ def square(start, end):
 
 
 def circle(start, end):
-    """Draw circle from start to end."""
+    """Draws circle.
+    
+    - The diameter is given by whichever of the following is bigger:
+        - x coordinate difference of start and end
+        - y coordinate difference of start and end
+    """
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
 
+    # 180 times the cursor turns 2°, meaning a 360° circle
     for count in range(180):
-        forward(max((end.x - start.x), (end.y - start.y))/57)
-        left(2)
+        # Divided by 57, because 180/pi ≈ 57
+        forward(max(abs(end.x - start.x), abs(end.y - start.y))/57)
+        
+        # Make sure the circle goes upward or downward, depending on whether end is below start
+        if end.y < start.y:
+            right(2)
+        else:
+            left(2)
 
     end_fill()
 
