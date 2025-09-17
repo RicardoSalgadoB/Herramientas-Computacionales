@@ -20,6 +20,10 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+"""Leonardo Orozco A00843030:
+A las propiedades se le agrega una nueva:"""
+obstacle = vector(1000 ,1000)
+
 # Irasema Álvarez Treviño - A01286449
 colors = ['blue', 'green', 'purple', 'orange', 'pink']
 snake_color = choice(colors)
@@ -53,11 +57,16 @@ def move():
         square(head.x, head.y, 9, 'red')
         update()
         return
+    
+    # Leonardo Orozco -  A00843030
+    if not inside(head) or head in snake or (head.x == obstacle.x and head.y == obstacle.y):
+        square(head.x, head.y, 9, 'red')
+        update()
+        return
 
     snake.append(head)
 
     if head == food:
-        print('Snake:', len(snake))
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
@@ -79,9 +88,24 @@ def move():
         square(body.x, body.y, 9, snake_color)
 
     square(food.x, food.y, 9, food_color)
+    square(obstacle.x, obstacle.y, 9, 'black')
 
     update()
     ontimer(move, 100)
+
+
+
+"""Leonardo Orozco A00843030:
+Con esto se posiciona el obstaculo dentro del area de juego y cambia de posicion cada 5 segundos,
+ademas de que el mismo obstaculo no aparece con la fruta nunca"""
+def mover_obstaculo():  
+    while True:
+        pos = vector(randrange(-15,15) *10 ,randrange(-15,15)*10)
+        if pos not in snake and pos != food:
+            obstacle.x, obstacle.y = pos.x, pos.y
+            break
+
+    ontimer(mover_obstaculo, 5000)
 
 
 setup(420, 420, 370, 0)
@@ -93,4 +117,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+mover_obstaculo()
 done()
