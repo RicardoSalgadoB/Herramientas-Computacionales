@@ -8,7 +8,6 @@ Exercises
 4. Make the ghosts faster/slower.
 5. Make the ghosts smarter.
 """
-
 from random import choice
 from turtle import *
 
@@ -25,6 +24,7 @@ ghosts = [
     [vector(100, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
 ]
+ghost_speed = 5
 # fmt: off
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -162,6 +162,13 @@ def change(x, y):
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
+
+def speed_up():
+    """Increase ghost speed over time."""
+    global ghost_speed
+    ghost_speed += 1
+    print("Ghost speed:", ghost_speed)
+    ontimer(speed_up, 15000)
 
 
 setup(420, 420, 370, 0)
