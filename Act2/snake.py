@@ -13,10 +13,12 @@ from turtle import *
 
 from freegames import square, vector
 
+
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+speed = 100  
 
 def change(x, y):
     """Change snake direction."""
@@ -30,6 +32,7 @@ def inside(head):
 
 
 def move():
+    global speed
     """Move snake forward one segment."""
     head = snake[-1].copy()
     head.move(aim)
@@ -43,8 +46,10 @@ def move():
 
     if head == food:
         print('Snake:', len(snake))
+        print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
+        speed = max(20, speed - 5)  
     else:
         snake.pop(0)
 
