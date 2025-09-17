@@ -19,11 +19,16 @@ from random import randrange, choice
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+
+# Irasema Álvarez Treviño - A01286449
 colors = ['blue', 'green', 'purple', 'orange', 'pink']
 snake_color = choice(colors)
 food_color = choice(colors)
 
+# Juan Antonio Rodríguez Reyna - A01571918
 speed = 100  
+
+# Irasema Álvarez Treviño - A01286449
 while food_color == snake_color:
     food_color = choice(colors)
 
@@ -56,7 +61,8 @@ def move():
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
-        speed = max(20, speed - 5)  
+        # Juan Antonio Rodríguez Reyna - A01571918
+        speed = max(20, speed - 5)   # pyright: ignore[reportOperatorIssue]
     else:
         # Ricardo Salgado Benítez - A01282489
         delta_x = randrange(-1, 2) * 10

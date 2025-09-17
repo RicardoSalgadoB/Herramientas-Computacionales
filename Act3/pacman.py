@@ -24,6 +24,8 @@ ghosts = [
     [vector(100, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
 ]
+
+# Irasema Álvarez Treviño - A01286449 & Juan Antonio Rodríguez Reyna - A01571918
 ghost_speed = 5
 
 # Ricardo Salgado Benítez - A01282489 & Leonardo Orozco
@@ -168,6 +170,7 @@ def change(x, y):
 
 def speed_up():
     """Increase ghost speed over time."""
+    # Irasema Álvarez Treviño - A01286449 & Juan Antonio Rodríguez Reyna - A01571918
     global ghost_speed
     ghost_speed += 1
     print("Ghost speed:", ghost_speed)
