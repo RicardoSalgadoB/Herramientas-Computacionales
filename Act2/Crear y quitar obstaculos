@@ -1,0 +1,15 @@
+"""Leonardo Orozco A00843030:
+A las propiedades se le agrega una nueva:"""
+obstacle = vector(1000 ,1000)
+
+
+"""Con esto se posiciona el obstaculo dentro del area de juego y cambia de posicion cada 5 segundos,
+ ademas de que el mismo obstaculo no aparece con la fruta nunca"""
+def mover_obstaculo():
+    while True:
+        pos = vector(randrange(-15,15) *10 ,randrange(-15,15)*10)
+        if pos not in snake and pos != food:
+            obstacle.x, obstacle.y = pos.x, pos.y
+            break
+
+    ontimer(mover_obstaculo, 5000)
