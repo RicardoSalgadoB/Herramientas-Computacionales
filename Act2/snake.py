@@ -46,11 +46,13 @@ def move():
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
     else:
+        # Ricardo Salgado Benítez - A01282489
         delta_x = randrange(-1, 2) * 10
         delta_y = randrange(-1, 2) * 10
         if -200 < food.x + delta_x < 190 and -200 < food.y + delta_y < 190:
             food.x += delta_x
             food.y += delta_y
+        
         snake.pop(0)
 
     clear()
