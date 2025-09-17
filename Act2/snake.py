@@ -13,13 +13,15 @@ from turtle import *
 
 from freegames import square, vector
 
-from random import randrange, choice
+from random import randrange, choice #Irasema
 
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
-colors = ['blue', 'green', 'purple', 'orange', 'pink']
+
+#Irasema
+colors = ['blue', 'green', 'purple', 'orange', 'pink'] 
 snake_color = choice(colors)
 food_color = choice(colors)
 
@@ -58,6 +60,7 @@ def move():
 
     clear()
 
+#Irasema
     for body in snake:
         square(body.x, body.y, 9, snake_color)
 
