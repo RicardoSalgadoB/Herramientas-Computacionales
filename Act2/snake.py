@@ -13,8 +13,8 @@ from turtle import *
 
 from freegames import square, vector
 
-from random import randrange, choice
 
+from random import randrange, choice
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
@@ -23,6 +23,7 @@ colors = ['blue', 'green', 'purple', 'orange', 'pink']
 snake_color = choice(colors)
 food_color = choice(colors)
 
+speed = 100  
 while food_color == snake_color:
     food_color = choice(colors)
 
@@ -38,6 +39,7 @@ def inside(head):
 
 
 def move():
+    global speed
     """Move snake forward one segment."""
     head = snake[-1].copy()
     head.move(aim)
@@ -51,8 +53,10 @@ def move():
 
     if head == food:
         print('Snake:', len(snake))
+        print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
+        speed = max(20, speed - 5)  
     else:
         # Ricardo Salgado Benítez - A01282489
         delta_x = randrange(-1, 2) * 10
