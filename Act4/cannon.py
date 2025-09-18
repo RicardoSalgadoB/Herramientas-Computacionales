@@ -72,7 +72,9 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            
+            # Ricardo Salgado Benítez -- A01282489
+            target.x = 200
 
     ontimer(move, 50)
 
