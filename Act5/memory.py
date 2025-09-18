@@ -15,7 +15,11 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+
+#Leonardo Orozco Guerrero A00843030
+Emojis = ["🤢","💔","😋","😂","😿","😪","🫶","😱","😽","🧐","😮‍💨","🤙","😻","👍","🥺","🙏","🥵","👉","👈","🥹","😾","🍄","🥕","🌽",
+          "😟","😍","😔","🤑","🧍🏻","❤️","🫡","😒"]
+tiles = Emojis * 2
 state = {'mark': None, 'taps': 0}
 hide = [True] * 64
 
@@ -47,8 +51,6 @@ def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
-    state['taps'] += 1
-    print(state['taps'])
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
@@ -70,7 +72,7 @@ def draw():
 
     for count in range(64):
         if hide[count]:
-            at_least_one = True # Ricardo Salgado
+            at_least_one = True # Ricardo Salgado 
             x, y = xy(count)
             square(x, y)
     
@@ -89,11 +91,6 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
-    up()
-    goto(-180, 180) 
-    color('black')
-    write(f"Taps: {state['taps']}", font=('Arial', 16, 'normal'))
 
     update()
     ontimer(draw, 100)
