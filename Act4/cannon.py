@@ -23,6 +23,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
+        # Juan Antonio Rdz. A01571918
+        # Irasema Álvarez Treviño A01286449
         speed.x = (x + 200) / 10
         speed.y = (y + 200) / 10
 
@@ -55,6 +57,8 @@ def move():
         targets.append(target)
 
     for target in targets:
+        # Juan Antonio Rdz. A01571918
+        # Irasema Álvarez Treviño A01286449
         target.x -= 2
 
     if inside(ball):
