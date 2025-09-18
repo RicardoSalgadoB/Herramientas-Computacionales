@@ -1,0 +1,8 @@
+#Leonardo Orozco G. A00843030
+    draw()
+
+    for target in targets:
+        if not inside(target):
+            target.x = 300
+
+    ontimer(move, 50)
