@@ -62,11 +62,22 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
+    
+    # Ricardo Salgado - A01282489
+    at_least_one = False
 
     for count in range(64):
         if hide[count]:
+            at_least_one = True # Ricardo Salgado
             x, y = xy(count)
             square(x, y)
+    
+    # Ricardo Salgado - A01282489
+    if not at_least_one:
+        up()
+        goto(-100, 0)
+        color('yellow')
+        write("¡FELICIDADES!", font=('Arial', 30, 'normal'))
 
     mark = state['mark']
 
