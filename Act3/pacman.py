@@ -22,7 +22,7 @@ ghosts = [
     [vector(-180, 160), vector(5, 0)],
     [vector(-180, -160), vector(0, 5)],
     [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(60, -160), vector(-5, 0)],
 ]
 
 # Irasema Álvarez Treviño - A01286449 & Juan Antonio Rodríguez Reyna - A01571918
