@@ -73,9 +73,10 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        # Irasema Alvarez Treviño - A01286449
+        goto(x + 26, y + 8)  
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], align='center', font=('Arial', 30, 'normal'))
 
     update()
     ontimer(draw, 100)
