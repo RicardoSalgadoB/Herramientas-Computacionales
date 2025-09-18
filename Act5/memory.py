@@ -20,6 +20,7 @@ car = path('car.gif')
 Emojis = ["🤢","💔","😋","😂","😿","😪","🫶","😱","😽","🧐","😮‍💨","🤙","😻","👍","🥺","🙏","🥵","👉","👈","🥹","😾","🍄","🥕","🌽",
           "😟","😍","😔","🤑","🧍🏻","❤️","🫡","😒"]
 tiles = Emojis * 2
+# Juan Antonio Rdz. A01571918
 state = {'mark': None, 'taps': 0}
 hide = [True] * 64
 
@@ -51,8 +52,11 @@ def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
+     # Juan Antonio Rdz. A01571918
+    state['taps'] += 1
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+      
         state['mark'] = spot
     else:
         hide[spot] = False
@@ -87,6 +91,7 @@ def draw():
 
     if mark is not None and hide[mark]:
         x, y = xy(mark)
+        # Juan Antonio Rdz. A01571918
         up()
         # Irasema Alvarez Treviño - A01286449
         goto(x + 26, y + 8)  
