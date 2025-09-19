@@ -28,6 +28,14 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+# Irasema Alvarez - A01286449
+available_colors = ['gray', 'orange', 'purple', 'brown', 'light blue', 'magenta']
+background_color = choice(available_colors)
+snake_color = choice(available_colors)
+
+while snake_color == background_color:
+    snake_color = choice(available_colors)
+
 
 def change(x, y):
     """Change snake direction."""
@@ -101,12 +109,12 @@ def move():
     for i in range(-23, 22):
         for j in range(-23, 22):
             if (j+i)%2 == 0:
-                square(j*10, i*10, 9, 'gray')
+                square(j*10, i*10, 9, background_color) # Cambio de gray a color aleatorio -Irasema
             else:
-                square(j*10, i*10, 9, 'white')
+                square(j*10, i*10, 9, 'white') 
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snake_color) # De black a color aleatorio - Irasema
 
     square(food.x, food.y, 9, food_color)
     update()
