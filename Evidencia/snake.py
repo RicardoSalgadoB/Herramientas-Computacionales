@@ -29,13 +29,14 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 # Irasema Alvarez - A01286449
-available_colors = ['gray', 'orange', 'purple', 'brown', 'light blue', 'magenta']
+available_colors = ['light gray', 'orange', 'purple', 'brown', 'steel blue', 'magenta']
 background_color = choice(available_colors)
 snake_color = choice(available_colors)
 
 while snake_color == background_color:
     snake_color = choice(available_colors)
 
+obstacles = []
 
 def change(x, y):
     """Change snake direction."""
@@ -55,7 +56,7 @@ def move():
     head = snake[-1].copy()
     head.move(aim)
 
-    if not inside(head) or head in snake:
+    if not inside(head) or head in snake or head in obstacles: # Adición del or head in obstacles -Irasema
         if invulnerability == 0:
             square(head.x, head.y, 9, 'red')
             update()
@@ -96,6 +97,14 @@ def move():
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
         food_color = choice(colors)
+
+        # Irasema Alvarez - A01286449
+        # Generar obstáculo aleatorio
+        new_obstacle = vector(randrange(-15, 15) * 10, randrange(-15, 15) * 10)
+        # Asegurar que no aparezca encima de la serpiente ni de la fruta
+        while new_obstacle in snake or new_obstacle == food or new_obstacle in obstacles:
+            new_obstacle = vector(randrange(-15, 15) * 10, randrange(-15, 15) * 10)
+        obstacles.append(new_obstacle)
     
     # Ricardo Salagdo - A01282489
     if not_popping == 0:
@@ -114,9 +123,11 @@ def move():
                 square(j*10, i*10, 9, 'white') 
 
     for body in snake:
-        square(body.x, body.y, 9, snake_color) # De black a color aleatorio - Irasema
-
+        square(body.x, body.y, 9, snake_color) # De black a color aleatorio -Irasema
+    
     square(food.x, food.y, 9, food_color)
+    for obs in obstacles:
+        square(obs.x, obs.y, 9, 'black')
     update()
     ontimer(move, 100)
 
