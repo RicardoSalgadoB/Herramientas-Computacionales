@@ -1,6 +1,6 @@
 from random import randrange, choice
 from turtle import *
-
+from turtle import Terminator
 from freegames import square, vector
 
 # Ricardo Salgado - A01282489
@@ -241,6 +241,10 @@ def move():
         square(m['pos'].x, m['pos'].y, 9, 'dark orange')
 
     update()
+    try:
+        ontimer(move, velocidad)
+    except Terminator:
+        return
     ontimer(move, velocidad) 
 
 
@@ -252,10 +256,6 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
-
-# Funcion para aumentar o reducir el mapa Leonardo Orozco A00843030
-onkey(increase_map, 'm')
-onkey(increase_map, 'M')
 
 move()
 done()
