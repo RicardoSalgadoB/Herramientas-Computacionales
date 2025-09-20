@@ -1,5 +1,12 @@
 # Modificación al Juego de la Serpiente/Víbora/Culebra
 
+Miembros del equipo:
+* Ricardo Salgado Benítez - A01282489
+* Leonardo Orozco Guerrero - A00843030
+* Irasema Álvarez Treviño - A01286449
+* Juan Antonio Rodríguez Reyna - A01571918
+
+
 El juego usado para la evidencia de está semana TEC fue el juego de la serpiente. Como se explica en el vídeo, existen distintas versiones del juego, por ejemplo, la versión de [Google](https://www.google.com/search?q=snake&sourceid=chrome&ie=UTF-8) y la versión de [FreeGames](https://grantjenks.com/docs/freegames/snake.html) en Python. Claramente, la segunda es mucho más simplona que la primera lo que significa que se puede tomar inspiración de la primera para mejorar la segunda, esto es justo lo que se hace en este proyecto.
 
 Las siguientes son algunas de las características que se agregaron a la versión de *Freegames* (para los detalles de implementación veáse el código), en general, los cambios de Interfaz y cambios de Experiencia de Usario:
