@@ -27,6 +27,8 @@ food_color = 'green'
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+# Juan Antonio Rdz. - A01571918
+velocidad = 10
 
 # Irasema Alvarez - A01286449
 available_colors = ['light gray', 'orange', 'purple', 'brown', 'steel blue', 'magenta']
@@ -51,7 +53,7 @@ def inside(head):
 def move():
     """Move snake forward one segment."""
     # Ricardo Salgado - A01282489
-    global food_color, not_popping, invulnerability
+    global food_color, not_popping, invulnerability, velocidad
     
     head = snake[-1].copy()
     head.move(aim)
@@ -85,9 +87,13 @@ def move():
         # Efectos
         if food_color == 'red': # Aumentar tamño x5
             not_popping = 5
+        # Juan Antonio Rdz. - A01571918
+            velocidad = max(20, velocidad - 10) 
         elif food_color == 'blue':  # Invulnerabilidad por 35 turnos
             invulnerability = 35
             not_popping = 1
+        # Juan Antonio Rdz. - A01571918
+            velocidad += 10
         else:
             not_popping = 1
         
@@ -129,7 +135,7 @@ def move():
     for obs in obstacles:
         square(obs.x, obs.y, 9, 'black')
     update()
-    ontimer(move, 100)
+    ontimer(move, velocidad) 
 
 
 setup(420, 420, 370, 0)
